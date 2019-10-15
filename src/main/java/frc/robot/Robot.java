@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class Robot extends TimedRobot {
     private Joystick leftStick = new Joystick(RobotMap.JOYSTICK_DRIVE_LEFT);
-    private Joystick rightStick = new Joystick(RobotMap.JOYSTICK_DRIVE_RIGHT);
     private Joystick manipulatorStick = new Joystick(RobotMap.JOYSTICK_MANIPULATOR);
 
     TankDrive tankDrive = new TankDrive();
@@ -66,11 +65,11 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
-        double leftSpeed = -leftStick.getY();
-        double rightSpeed = -rightStick.getY();
+        double forward = -leftStick.getY();
+        double left  = leftStick.getX();
         double xPos = manipulatorStick.getX();
 
-        tankDrive.drive(leftSpeed, rightSpeed);
+        tankDrive.arcadeDrive(forward, left);
         flag.wave(xPos);
     }
 

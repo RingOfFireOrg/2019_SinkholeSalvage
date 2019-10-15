@@ -27,9 +27,12 @@ public class TankDrive extends DifferentialDrive {
 		initEncoder(rightEncoder);
 	}
 
-	public void drive(double leftSpeed, double rightSpeed) {
+	public void tankDrive(double leftSpeed, double rightSpeed) {
 		tankDrive(leftSpeed, rightSpeed);
-	}
+    }
+    public void arcadeDrive(double forward, double right){
+        arcadeDrive(forward, right);
+    }
 	
 	private void initEncoder(Encoder encoder) {
 		encoder.reset();
