@@ -5,7 +5,8 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Joystick;
-
+import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.whosJoe;
 /**
  * Don't change the name of this or it won't work. (The manifest looks for
  * "Robot")
@@ -14,6 +15,7 @@ public class Robot extends TimedRobot {
     private Joystick leftStick = new Joystick(RobotMap.JOYSTICK_DRIVE_LEFT);
     private Joystick rightStick = new Joystick(RobotMap.JOYSTICK_DRIVE_RIGHT);
     private Joystick manipulatorStick = new Joystick(RobotMap.JOYSTICK_MANIPULATOR);
+    private VictorSP boxMotor = new VictorSP(5);
 
     TankDrive tankDrive = new TankDrive();
     Flag flag = new Flag();
@@ -65,13 +67,14 @@ public class Robot extends TimedRobot {
      * This function is called periodically during operator control. (approx 20ms)
      */
     @Override
-    public void teleopPeriodic() {
+    public void teleopPeriodic() { //nice
         double leftSpeed = -leftStick.getY();
         double rightSpeed = -rightStick.getY();
-        double xPos = manipulatorStick.getX();
+        double yPos = manipulatorStick.getY();
+        
+        boxMotor.set(yPos);
 
         tankDrive.drive(leftSpeed, rightSpeed);
-        flag.wave(xPos);
     }
 
     /**
@@ -88,4 +91,5 @@ public class Robot extends TimedRobot {
     @Override
     public void testPeriodic() {
     }
+
 }
