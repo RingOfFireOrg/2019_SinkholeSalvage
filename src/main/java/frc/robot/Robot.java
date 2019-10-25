@@ -15,6 +15,7 @@ public class Robot extends TimedRobot {
     private Joystick manipulatorStick = new Joystick(RobotMap.JOYSTICK_MANIPULATOR);
 
     TankDrive tankDrive = new TankDrive();
+    Shooter shooter = new Shooter(RobotMap.SHOOTER_MOTOR);
 
     /**
      * This function is run when the robot is first started up and should be used
@@ -64,7 +65,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
-        double xPos = manipulatorStick.getX();
+        shooter.shoot(manipulatorStick.getY());
 
         tankDrive.arcadeDrive(leftStick.getY(), leftStick.getX());
     }
