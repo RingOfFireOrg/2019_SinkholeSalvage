@@ -8,6 +8,9 @@ public class RobotMap {
 	public static final int JOYSTICK_DRIVE_RIGHT = 2;
 	public static final int JOYSTICK_MANIPULATOR = 3;
 
+	//Joystick Buttons
+	public static final int TRAPDOOR_BUTTON = 1;
+
 	// Analog Ports
 	// Robot Ports
 

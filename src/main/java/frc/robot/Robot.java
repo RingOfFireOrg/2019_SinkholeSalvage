@@ -4,7 +4,15 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.Joystick;
+
+
+
+enum armButtonState{
+    PRESSED, 
+    RELEASED;
+}
 
 /**
  * Don't change the name of this or it won't work. (The manifest looks for
@@ -14,9 +22,13 @@ public class Robot extends TimedRobot {
     private Joystick leftStick = new Joystick(RobotMap.JOYSTICK_DRIVE_LEFT);
     private Joystick rightStick = new Joystick(RobotMap.JOYSTICK_DRIVE_RIGHT);
     private Joystick manipulatorStick = new Joystick(RobotMap.JOYSTICK_MANIPULATOR);
+    public JoystickButton armButton = new JoystickButton(manipulatorStick, 10);
 
     TankDrive tankDrive = new TankDrive();
     TrapDoor TrapDoor = new TrapDoor();
+
+    int trapDoorPos = 1;
+
 
     /**
      * This function is run when the robot is first started up and should be used
@@ -59,6 +71,8 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopInit() {
+        TrapDoor.reset();
+        trapDoorPos = 1;
     }
 
     /**
@@ -68,10 +82,19 @@ public class Robot extends TimedRobot {
     public void teleopPeriodic() {
         double leftSpeed = -leftStick.getY();
         double rightSpeed = -rightStick.getY();
-        double xPos = manipulatorStick.getX();
+        boolean armButton = manipulatorStick.getRawButton(RobotMap.TRAPDOOR_BUTTON);
+
+        
+
+        if(armButton == false){
+            trapDoorPos = 0;
+        } else if (armButton == true){
+            trapDoorPos = 1;
+        }
 
         tankDrive.drive(leftSpeed, rightSpeed);
-        TrapDoor.wave(xPos);
+
+        TrapDoor.moveArm(trapDoorPos);
     }
 
     /**
