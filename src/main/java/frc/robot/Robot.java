@@ -22,7 +22,7 @@ public class Robot extends TimedRobot {
     private Joystick leftStick = new Joystick(RobotMap.JOYSTICK_DRIVE_LEFT);
     private Joystick rightStick = new Joystick(RobotMap.JOYSTICK_DRIVE_RIGHT);
     private Joystick manipulatorStick = new Joystick(RobotMap.JOYSTICK_MANIPULATOR);
-    public JoystickButton armButton = new JoystickButton(manipulatorStick, 10);
+    public JoystickButton armButton = new JoystickButton(manipulatorStick, RobotMap.TRAPDOOR_BUTTON);
 
     TankDrive tankDrive = new TankDrive();
     TrapDoor TrapDoor = new TrapDoor();
@@ -83,18 +83,11 @@ public class Robot extends TimedRobot {
         double leftSpeed = -leftStick.getY();
         double rightSpeed = -rightStick.getY();
         boolean armButton = manipulatorStick.getRawButton(RobotMap.TRAPDOOR_BUTTON);
-
         
-
-        if(armButton == false){
-            trapDoorPos = 0;
-        } else if (armButton == true){
-            trapDoorPos = 1;
-        }
 
         tankDrive.drive(leftSpeed, rightSpeed);
 
-        TrapDoor.moveArm(trapDoorPos);
+        TrapDoor.moveArm(armButton);
     }
 
     /**

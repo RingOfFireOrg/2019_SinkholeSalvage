@@ -11,8 +11,8 @@ public class RobotMap {
 	//Joystick Buttons
 	public static final int TRAPDOOR_BUTTON = 1;
 
-	// Analog Ports
 	// Robot Ports
+	// Analog Ports
 
 	// Drive Train Motors
 	public static final int MOTOR_FRONT_LEFT = 0;
@@ -26,5 +26,6 @@ public class RobotMap {
 	public static final int DRIVE_TRAIN_RIGHT_ENCODER_A = 2;
 	public static final int DRIVE_TRAIN_RIGHT_ENCODER_B = 3;
 
+	//Servos
 	public static final int TRAPDOOR_SERVO = 0;
 }

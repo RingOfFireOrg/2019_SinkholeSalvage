@@ -3,30 +3,21 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Servo;
 
 public class TrapDoor {
-    private static final double DOWN_POSITION = 0.0;
-    private static final double UP_POSITION = 1.0;
-    private static final double MIDDLE_POSITION = 0.5;
+    private static final double CLOSED_POSITION = 0.0;
+    private static final double OPEN_POSITION = 1.0;
 
     private Servo TrapDoorArm = new Servo(RobotMap.TRAPDOOR_SERVO);
 
 
-    public void moveArm(double trapDoorPos) {
-        if (trapDoorPos == 0) {
-            TrapDoorArm.set(DOWN_POSITION);
+    public void moveArm(Boolean armButton) {
+        if (armButton) {
+            TrapDoorArm.set(OPEN_POSITION);
+        } else {
+            TrapDoorArm.set(CLOSED_POSITION);
         }
-        else if (trapDoorPos == 1) {
-            TrapDoorArm.set(UP_POSITION);
-        }
-        else {
-            stop();
-        }
-    }
-
-    public void stop() {
-        TrapDoorArm.set(MIDDLE_POSITION);
     }
 
     public void reset(){
-        TrapDoorArm.set(UP_POSITION);
+        TrapDoorArm.set(CLOSED_POSITION);
     }
 }
