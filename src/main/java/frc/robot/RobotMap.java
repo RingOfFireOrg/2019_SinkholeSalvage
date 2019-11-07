@@ -17,6 +17,8 @@ public class RobotMap {
 	public static final int MOTOR_BACK_LEFT = 2;
 	public static final int MOTOR_BACK_RIGHT = 3;
 
+	public static final int ARM_MOTOR_PWM_PIN = 3;
+
 	// Drive Train Encoders
 	public static final int DRIVE_TRAIN_LEFT_ENCODER_A = 0;
 	public static final int DRIVE_TRAIN_LEFT_ENCODER_B = 1;
