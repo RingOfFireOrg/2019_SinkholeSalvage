@@ -15,6 +15,7 @@ public class Robot extends TimedRobot {
     private Joystick rightStick = new Joystick(RobotMap.JOYSTICK_DRIVE_RIGHT);
     private Joystick manipulatorStick = new Joystick(RobotMap.JOYSTICK_MANIPULATOR);
 
+    Banana banana = new Banana();
     TankDrive tankDrive = new TankDrive();
     Flag flag = new Flag();
 
@@ -68,10 +69,15 @@ public class Robot extends TimedRobot {
     public void teleopPeriodic() {
         double leftSpeed = -leftStick.getY();
         double rightSpeed = -rightStick.getY();
-        double xPos = manipulatorStick.getX();
+        double bananaWheelSpeed = manipulatorStick.getY();
+        boolean stopBananaWheel = manipulatorStick.getTrigger();
 
         tankDrive.drive(leftSpeed, rightSpeed);
-        flag.wave(xPos);
+        if(stopBananaWheel){
+            banana.stop();
+        } else {
+            banana.intake(bananaWheelSpeed);
+        }
     }
 
     /**
