@@ -6,7 +6,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.VictorSP;
-import edu.wpi.first.wpilibj.whosJoe;
 /**
  * Don't change the name of this or it won't work. (The manifest looks for
  * "Robot")
