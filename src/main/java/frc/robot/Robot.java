@@ -14,7 +14,7 @@ public class Robot extends TimedRobot {
     private Joystick leftStick = new Joystick(RobotMap.JOYSTICK_DRIVE_LEFT);
     private Joystick rightStick = new Joystick(RobotMap.JOYSTICK_DRIVE_RIGHT);
     private Joystick manipulatorStick = new Joystick(RobotMap.JOYSTICK_MANIPULATOR);
-    private VictorSP boxMotor = new VictorSP(5);
+    private VictorSP boxMotor = new VictorSP(RobotMap.ARM_MOTOR_PWM_PIN);
 
     TankDrive tankDrive = new TankDrive();
     Flag flag = new Flag();
@@ -74,6 +74,8 @@ public class Robot extends TimedRobot {
         boxMotor.set(yPos);
 
         tankDrive.drive(leftSpeed, rightSpeed);
+
+        Arm.control(yPos);
     }
 
     /**
