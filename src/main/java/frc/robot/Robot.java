@@ -69,7 +69,7 @@ public class Robot extends TimedRobot {
         shooter.shoot(manipulatorStick.getY());
         DriverStation.reportWarning("Shooting " + manipulatorStick.getY(),false);
 
-        tankDrive.arcadeDrive(leftStick.getY(), leftStick.getX());
+        tankDrive.arcadeDrive(-leftStick.getY(), leftStick.getX());
     }
 
     /**
