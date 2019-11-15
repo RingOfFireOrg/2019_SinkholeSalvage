@@ -17,7 +17,7 @@ public class Robot extends TimedRobot {
     private VictorSP boxMotor = new VictorSP(RobotMap.ARM_MOTOR_PWM_PIN);
 
     TankDrive tankDrive = new TankDrive();
-    Flag flag = new Flag();
+    Arm arm = new Arm();
 
     /**
      * This function is run when the robot is first started up and should be used
