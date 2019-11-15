@@ -65,7 +65,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
-        double forward = leftStick.getY();
+        double forward = -leftStick.getY();
         double left = leftStick.getX();
         double xPos = manipulatorStick.getX();
 
