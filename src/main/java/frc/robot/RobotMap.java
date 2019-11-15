@@ -25,5 +25,5 @@ public class RobotMap {
 
     public static final int FLAG_SERVO = 0;
 
-    public static final int SHOOTER_MOTOR = 0;
+    public static final int SHOOTER_MOTOR = 2;
 }

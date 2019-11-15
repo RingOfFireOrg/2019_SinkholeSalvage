@@ -4,6 +4,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
 
 /**
@@ -66,6 +67,7 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopPeriodic() {
         shooter.shoot(manipulatorStick.getY());
+        DriverStation.reportWarning("Shooting " + manipulatorStick.getY(),false);
 
         tankDrive.arcadeDrive(leftStick.getY(), leftStick.getX());
     }

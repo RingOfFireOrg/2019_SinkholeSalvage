@@ -1,19 +1,22 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.PWMVictorSPX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+
+import edu.wpi.first.wpilibj.VictorSP;;
 
 public class Shooter {
-    private PWMVictorSPX wheelsMotor;
+    private VictorSPX wheelsMotor;
 
-    Shooter(int pwmPort) {
-        wheelsMotor = new PWMVictorSPX(pwmPort);
+    Shooter(int canPort) {
+        wheelsMotor = new VictorSPX(canPort);
     }
 
     public void stop() {
-        wheelsMotor.set(0.0);
+        wheelsMotor.set(ControlMode.PercentOutput, 0.0);
     }
     public void shoot(double speed){
-        wheelsMotor.set(speed);
+        wheelsMotor.set(ControlMode.PercentOutput, speed);
     }
 
 
