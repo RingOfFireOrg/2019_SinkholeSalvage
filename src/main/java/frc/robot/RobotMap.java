@@ -27,5 +27,5 @@ public class RobotMap {
 	public static final int DRIVE_TRAIN_RIGHT_ENCODER_B = 3;
 
 	//Servos
-	public static final int TRAPDOOR_SERVO = 0;
+	public static final int TRAPDOOR_SERVO = 9;
 }
